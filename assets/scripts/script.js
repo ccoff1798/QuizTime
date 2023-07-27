@@ -1,5 +1,8 @@
 //Global Variables
 let start = document.querySelector('#startGame');
+let main = document.querySelector('#main')
+let footer = document.querySelector('#footer')
+// let removeOnStart = document.getElementsByClassName('clearOnStart')
 let body = document.querySelector('#body');
 let highscoreButton = document.querySelector('#highscore');
 let sectionEl = document.createElement("section");
@@ -8,6 +11,7 @@ let quizPlace = 0;
 let answersCorrect = 0;
 let highscore = 0;
 let hasClicked = false;
+let mainEl = document.getElementById('main')
 
 
 //event listner for start button, click runs init function
@@ -25,7 +29,7 @@ function init() {
 }
 //question objects, this will be a big bulk, skip to line 110
 let question1 = {
-    question: "Through the Series, the Bender is comprised of all of the folowing except What? ",
+    question: "Through the Series, Bender is comprised of all of the folowing except what? ",
     choice1: '40% Iron',
     choice2: '40% Titanium',
     choice3: '40% Dolomite',
@@ -48,80 +52,80 @@ let question3 = {
     choice4: 'Coworkers',
     answer: 'Single Female Lawyer'
 }
-// let question4 = {
-//     question: 'In the second episode of the series, what does Professor Farnsworth say is strange about Dr.Zoidberg?',
-//     choice1: 'He eats from the trash',
-//     choice2: 'He wears sandles',
-//     choice3: 'His claws are strangly not claw like',
-//     choice4: 'His scent',
-//     answer: 'He wears sandles'
-// }
-// let question5 = {
-//     question: 'In',
-//     choice1: 'a',
-//     choice2: 'b',
-//     choice3: 'c',
-//     choice4: 'D',
-//     answer: 'b'
-// }
-// let question6 = {
-//     question: 'In',
-//     choice1: 'a',
-//     choice2: 'b',
-//     choice3: 'c',
-//     choice4: 'D',
-//     answer: 'b'
-// }
-// let question7 = {
-//     question: 'In',
-//     choice1: 'a',
-//     choice2: 'b',
-//     choice3: 'c',
-//     choice4: 'D',
-//     answer: 'b'
-// }
-// let question8 = {
-//     question: 'In',
-//     choice1: 'a',
-//     choice2: 'b',
-//     choice3: 'c',
-//     choice4: 'D',
-//     answer: 'b'
-// }
-// let question9 = {
-//     question: 'In',
-//     choice1: 'a',
-//     choice2: 'b',
-//     choice3: 'c',
-//     choice4: 'D',
-//     answer: 'b'
-// }
-// let question10 = {
-//     question: 'In',
-//     choice1: 'a',
-//     choice2: 'b',
-//     choice3: 'c',
-//     choice4: 'D',
-//     answer: 'b'
-// }
+let question4 = {
+    question: 'In the second episode of the series, what does Professor Farnsworth say is strange about Dr.Zoidberg?',
+    choice1: 'He eats from the trash',
+    choice2: 'He wears sandles',
+    choice3: 'His claws are strangly not claw like',
+    choice4: 'His scent',
+    answer: 'He wears sandles'
+}
+let question5 = {
+    question: 'What was the first tag-line used in the Futurama opening credits?',
+    choice1: 'In Color',
+    choice2: 'Now in Smellovision',
+    choice3: 'Live from Omicron Persei 8',
+    choice4: 'Tell Your Parents its Eductational!',
+    answer: 'In Color'
+}
+let question6 = {
+    question: " In 'The Cyber House Rules', what is the name of Leela's boyfriend?",
+    choice1: 'Lars Fillmore',
+    choice2: 'Adlai',
+    choice3: 'Alkazaar',
+    choice4: 'Sean',
+    answer: 'Adlai'
+}
+let question7 = {
+    question: 'In "Insane in the Mainframe", what historical figure does Bender pretend to be in the insane ayslum?',
+    choice1: 'Ponce DeLeon',
+    choice2: 'Alexander the Great',
+    choice3: 'Napoleon',
+    choice4: 'Joseph Stalin',
+    answer: 'Napoleon'
+}
+let question8 = {
+    question: 'Who is Inspector 5?',
+    choice1: 'Professor Farnsworth',
+    choice2: 'Mom',
+    choice3: 'Fry',
+    choice4: 'Hermes',
+    answer: 'Hermes'
+}
+let question9 = {
+    question: 'All of the following have a dated Leela, except',
+    choice1: 'Lars Filmore',
+    choice2: 'Zapp Brannigann',
+    choice3: 'Sean',
+    choice4: 'Alkazaar',
+    answer: 'Zapp Brannigann'
+}
+let question10 = {
+    question: 'Frys voice-actor is',
+    choice1: 'Billy West',
+    choice2: 'Joe DiMaggio',
+    choice3: 'Maurice Lamarche',
+    choice4: 'Jimmy Adams',
+    answer: 'Billy West'
+}
 
-// array of objects
-// let questionArray = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10]
+let questionArray = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10]
 
-//temp testing array
-let questionArray = [question1, question2, question3]
+
 
 // This is the function that generates the new questions
 function generateQuestions() {
     // starting by clearing the remove button
     start.remove();
+    main.remove();
+    footer.remove();
     //variable to keep track of where we are in the array
     let currentQuestion = questionArray[quizPlace]
     //set up the section that hold the questions
 
     //Creating the questions in the Dom and setting class to be maniuplated
     let questionEl = document.createElement("div");
-    questionEl.classList.add("questionSectionr")
+    questionEl.classList.add("questionSection")
     questionEl.classList.add("quiz")
     questionEl.textContent = currentQuestion.question;
 
@@ -151,13 +155,15 @@ function generateQuestions() {
     answer4El.addEventListener('click', checkAnswers)
 
     //this is appending all the questions and possible choices to the DOM
+    document.body.insertBefore(sectionEl, document.querySelector('footer'));
+    mainEl.appendChild(sectionEl)
     sectionEl.appendChild(questionEl)
     sectionEl.appendChild(articleEl)
     articleEl.appendChild(answer1El)
     articleEl.appendChild(answer2El)
     articleEl.appendChild(answer3El)
     articleEl.appendChild(answer4El)
-    let questionSection = document.body.appendChild(sectionEl);
+    document.body.appendChild(sectionEl)
 }
 
 //This is the function that checks if clicked answer matches the answer key
@@ -216,7 +222,7 @@ function finisher(){
     alert("Congratulations you beast, you made or tied the highscore of " + answersCorrect)
     else if(answersCorrect <= (questionArray.length * .5))
     {
-        alert("Well, we can't all be winners, you got " + answersCorrect + " correct out of" + questionArray.length)
+        alert("Oh wait, your serious, let me laugh even harder then, HAHAHAHA, you got " + answersCorrect + " correct out of " + questionArray.length)
     }
     else if(answersCorrect > (questionArray.length * .5))
     {

@@ -5,46 +5,114 @@ body{
     flex-direction: column;
     padding: auto;
     margin: auto;
+    background-color: aquamarine;
 }
 header{
-    background-color: blue;
+    position: relative;
+    background-color: rgb(39, 204, 216);
+    /* border-radius: 5px; */
+    padding: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 4px 4px 4px 4px rgba(95, 35, 15, 0.2);
 }
 
 #highscore{
-    margin-left: 2%
+    position: relative;
+    /* margin-left: 10%; */
+    margin: auto;
+    /* margin-bottom: 2%; */
+    float: left;
 }
-#startgame{
-    justify-content: right;
+
+#startGame{
+    margin-left: 85%;
+    margin-right: 10%;
+}
+h1{
+    font-size: xx-large;
+    text-decoration: wavy;
+    text-align: center;
+    background-color: rgb(128, 41, 41);
+    color: rgb(239, 239, 176);
+    border-radius: 15px;
+    margin-left: 3%;
+    margin-right: 3%;
+    box-shadow: 4px 6px 4px 4px rgba(95, 35, 15, 0.2);
+}
+p{
+    padding: 3%;
+    font-size: x-large;
+    color: rgb(239, 239, 176);
+    margin: 2%;
+    background-color: rgb(128, 41, 41);
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 4px 6px 4px 4px rgba(95, 35, 15, 0.2);
+    margin-left: 10%;
+    margin-right: 10%;
 }
 .questionSection{
     display: flex;
-    /* flex-direction: column; */
+    margin-left: 10%;
+    margin-right: 10%;
     align-items: center;
+    font-size: xx-large;
+    background-color: rgb(128, 41, 41);
+    color: rgb(239, 239, 176);
+    padding: 3%;
+    border-radius: 75px;
+    box-shadow: 4px 6px 4px 4px rgba(95, 35, 15, 0.2);
+    
 }
 .buttonContainer{
     display: flex;
+    font-size: x-large;
+    position: relative;
     flex-direction: column;
     justify-content: center;
+    margin-left: 20%;
+    margin-right: 20%;
+    color: rgb(239, 239, 176);
 }
 
 .quiz{
-    margin: 1%;
     flex-direction: column;
-    padding: 1%;
     text-align: center;
 }
  button{
     background-color: aqua;
+    font-size: x-large;
     text-align: center;
+    justify-content: center;
+    align-items: center;
     display: inline block;
-    padding: auto;
-    margin: auto;
-    border-radius: 5%;
-    text-align: center;
-    box-shadow: 2px, 2px;
+    border-radius: 25px;
+   padding: 25px;
+   margin: 5px;
+    box-shadow: 4px 4px 2px 1px rgba(0, 0, 255, .2);
+    color: rgb(128, 41, 41);
  }
  button:hover{
-    border-style: outset;
+    background-color: rgb(176, 232, 232);
+ }
+ footer{
+    position: relative;
+    background-color: rgb(39, 204, 216);
+    justify-content: center;
+    align-items: bottom;
+    display: flex;
+    max-height: 10%;
+    margin-left: 35%;
+    margin-right: 35%;
+    border-radius: 50px;
+ }
+ img{
+    display: flex;
+    position: relative;
+    transform-origin: center;
+    justify-content: center;
  }
 
  .correct{
